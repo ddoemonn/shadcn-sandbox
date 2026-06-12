@@ -7,6 +7,7 @@ import {
   getComponentDoc,
   getComponentSlugs,
 } from "@/lib/component-docs/registry";
+import { createCanonicalUrl, siteName } from "@/lib/seo";
 import { highlightCode } from "@/lib/shiki";
 
 interface ComponentDocPageProps {
@@ -27,8 +28,35 @@ export async function generateMetadata({
     return { title: "Component" };
   }
 
+  const url = createCanonicalUrl(`/components/${slug}`);
+
   return {
     title: doc.title,
+    description: `${doc.description} Install ${doc.title} from the shadcn-sandbox registry for React and Next.js playground interfaces.`,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${doc.title} component`,
+      description: doc.description,
+      url,
+      siteName,
+      type: "article",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: `${doc.title} shadcn-sandbox component`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${doc.title} component`,
+      description: doc.description,
+      images: ["/twitter-image"],
+    },
   };
 }
 

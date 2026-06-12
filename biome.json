@@ -159,9 +159,34 @@
   },
   "overrides": [
     {
+      "includes": ["app/globals.css"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["app/**/manifest.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": [
         "app/**/page.tsx",
         "app/**/layout.tsx",
+        "app/**/manifest.ts",
+        "app/**/opengraph-image.tsx",
+        "app/**/robots.ts",
+        "app/**/sitemap.ts",
+        "app/**/twitter-image.tsx",
         "next.config.ts",
         "postcss.config.mjs",
         "eslint.config.mjs"

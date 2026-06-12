@@ -6,6 +6,14 @@ import { SiteHeader } from "@/components/marketing/site-header";
 import { SkipLink } from "@/components/marketing/skip-link";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import {
+  baseOpenGraphImages,
+  createCanonicalUrl,
+  seoKeywords,
+  siteDescription,
+  siteName,
+  siteUrl,
+} from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,12 +27,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
   title: {
-    default: "shadcn-sandbox",
-    template: "%s | shadcn-sandbox",
+    default: `${siteName} - shadcn/ui playground components`,
+    template: `%s | ${siteName}`,
   },
-  description:
-    "Interactive code playground components for shadcn/ui — embedded editors, live previews, file trees, consoles, and error overlays.",
+  description: siteDescription,
+  keywords: seoKeywords,
+  authors: [{ name: "shadcn-sandbox" }],
+  creator: "shadcn-sandbox",
+  publisher: "shadcn-sandbox",
+  category: "Developer Tools",
+  alternates: {
+    canonical: createCanonicalUrl(),
+  },
+  openGraph: {
+    title: `${siteName} - shadcn/ui playground components`,
+    description: siteDescription,
+    url: siteUrl,
+    siteName,
+    type: "website",
+    locale: "en_US",
+    images: baseOpenGraphImages,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} - shadcn/ui playground components`,
+    description: siteDescription,
+    images: ["/twitter-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -36,6 +79,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    name: siteName,
+    description: siteDescription,
+    url: siteUrl,
+    applicationCategory: "DeveloperApplication",
+    programmingLanguage: ["TypeScript", "TSX", "CSS"],
+    runtimePlatform: "Next.js",
+    keywords: seoKeywords.join(", "),
+  };
+
   return (
     <html
       lang="en"
@@ -50,6 +105,13 @@ export default function RootLayout({
         >
           <TooltipProvider>
             <SkipLink />
+            <script
+              type="application/ld+json"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: Static JSON-LD generated from local constants for crawler metadata.
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(structuredData),
+              }}
+            />
             <SiteHeader />
             <main id="main-content" className="flex-1 scroll-mt-14">
               {children}

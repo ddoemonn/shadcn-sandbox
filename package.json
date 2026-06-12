@@ -11,7 +11,7 @@
     "biome": "bunx biome check .",
     "check": "bunx biome check --write .",
     "format": "bunx biome format --write .",
-    "typecheck": "bunx tsc --noEmit"
+    "typecheck": "next typegen && bunx tsc --noEmit"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

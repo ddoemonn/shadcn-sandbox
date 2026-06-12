@@ -1,6 +1,5 @@
-"use client";
-
 import { ArrowRight, Code2, Eye, TerminalSquare } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CopyCommand } from "@/components/marketing/copy-command";
 import { SandboxIDE } from "@/components/sandbox/sandbox-ide";
@@ -14,6 +13,13 @@ import {
 } from "@/components/ui/card";
 import { SandboxProvider } from "@/lib/sandbox/sandbox-store";
 import { sandboxShellClassName } from "@/lib/sandbox/utils";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Open-source shadcn/ui playground components",
+  description:
+    "Install shadcn/ui components for embedded code editors, live previews, file trees, consoles, install logs, and runtime error overlays.",
+});
 
 const installCommands = [
   "bunx --bun shadcn@latest add https://shadcn-sandbox.vercel.app/r/code-editor.json",

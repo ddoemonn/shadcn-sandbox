@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { ComponentsSidebar } from "@/components/marketing/components-sidebar";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Components",
-};
+  description:
+    "Browse installable shadcn/ui playground primitives for code editors, previews, file trees, consoles, install logs, and error overlays.",
+  path: "/components",
+});
 
 export default function ComponentsLayout({
   children,
