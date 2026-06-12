@@ -61,7 +61,7 @@ export function SiteHeader() {
             className="hidden sm:inline-flex"
             render={
               <a
-                href="https://github.com"
+                href="https://github.com/ddoemonn/shadcn-sandbox"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open GitHub"
