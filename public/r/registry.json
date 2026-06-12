@@ -1,0 +1,170 @@
+{
+  "name": "shadcn-sandbox",
+  "homepage": "https://shadcn-sandbox.vercel.app",
+  "items": [
+    {
+      "name": "code-editor",
+      "type": "registry:ui",
+      "title": "Code Editor",
+      "description": "Syntax-highlighted multi-file code editor with tabs, format, and copy actions.",
+      "dependencies": [
+        "@uiw/react-codemirror",
+        "@codemirror/lang-javascript",
+        "@codemirror/lang-css",
+        "@codemirror/lang-json",
+        "@codemirror/theme-one-dark",
+        "lucide-react"
+      ],
+      "registryDependencies": ["button", "badge", "scroll-area"],
+      "files": [
+        {
+          "path": "components/sandbox/code-editor.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/sandbox/codemirror-theme.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/sandbox/types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/sandbox/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "preview-frame",
+      "type": "registry:ui",
+      "title": "Preview Frame",
+      "description": "Live preview frame with viewport switcher, loading/error states, and runtime overlay.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "tooltip"],
+      "files": [
+        {
+          "path": "components/sandbox/preview-frame.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/sandbox/error-overlay.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/sandbox/types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/sandbox/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "file-tree",
+      "type": "registry:ui",
+      "title": "File Tree",
+      "description": "Nested file explorer with collapsible folders and file actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "collapsible", "scroll-area"],
+      "files": [
+        {
+          "path": "components/sandbox/file-tree.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/sandbox/types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/sandbox/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "console-panel",
+      "type": "registry:ui",
+      "title": "Console Panel",
+      "description": "Collapsible console panel with log levels and timestamps.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "scroll-area"],
+      "files": [
+        {
+          "path": "components/sandbox/console-panel.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/sandbox/types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/sandbox/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "package-install-log",
+      "type": "registry:ui",
+      "title": "Package Install Log",
+      "description": "Terminal-like package install output with success and failure states.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/sandbox/package-install-log.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/sandbox/types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/sandbox/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "error-overlay",
+      "type": "registry:ui",
+      "title": "Error Overlay",
+      "description": "Runtime error overlay with stack trace and actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "components/sandbox/error-overlay.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/sandbox/types.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/sandbox/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "resizable-ide-layout",
+      "type": "registry:ui",
+      "title": "Resizable IDE Layout",
+      "description": "VS Code-like resizable IDE layout for composing playground panels.",
+      "dependencies": ["react-resizable-panels"],
+      "registryDependencies": ["resizable"],
+      "files": [
+        {
+          "path": "components/sandbox/resizable-ide-layout.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "lib/sandbox/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    }
+  ]
+}
